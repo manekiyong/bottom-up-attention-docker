@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  buatorch:
+    build: ../
+    stdin_open: true
+    tty: true
+    ulimits:
+      memlock: -1 # set upper limit for how much memory is locked for the container (-1 means lock as much as the container uses)
+    shm_size: 32gb
+    deploy:
+          resources:
+            reservations:
+              devices:
+                - driver: nvidia
+                  count: 1
+                  capabilities: [gpu]
+    volumes:
+      - ../data:/data
+    command: /bin/bash
+    
