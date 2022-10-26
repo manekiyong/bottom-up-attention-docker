@@ -68,7 +68,7 @@ cd /src
 python extract_features.py --mode caffe \
          --num-cpus 16 --gpus '0' \
          --extract-mode fast_rcnn \
-         --min-max-boxes '10,100' \
+         --min-max-boxes '100,100' \
          --config-file configs/caffe/test-caffe-r101.yaml \
          --image-dir ../data/flickr30k/flickr30k_images \
          --out-dir ../data/flickr30k/flickr30k_feat
